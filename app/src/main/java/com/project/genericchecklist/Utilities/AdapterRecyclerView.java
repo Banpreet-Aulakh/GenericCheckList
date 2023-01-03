@@ -1,4 +1,4 @@
-package com.project.genericchecklist.UI;
+package com.project.genericchecklist.Utilities;
 
 import android.content.Context;
 import android.os.Bundle;
@@ -12,7 +12,8 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.project.genericchecklist.R;
-import com.project.genericchecklist.Utilities.DatabaseHelper;
+import com.project.genericchecklist.UI.CheckListActivity;
+import com.project.genericchecklist.UI.NewTaskFragment;
 import com.project.genericchecklist.model.ListItem;
 
 import java.util.List;
@@ -75,7 +76,7 @@ public class AdapterRecyclerView extends RecyclerView.Adapter<AdapterRecyclerVie
         ListItem item = list.get(position);
 
         Bundle bundle = new Bundle();
-        bundle.putInt("Id", item.getId());
+        bundle.putInt("id", item.getId());
         bundle.putString("task", item.getTitle());
 
         NewTaskFragment task = new NewTaskFragment();

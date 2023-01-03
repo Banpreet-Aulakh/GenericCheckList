@@ -3,4 +3,6 @@
     <string name="fab_description">Add Item to Checklist</string>
     <string name="enter_new_task">Enter New Task</string>
     <string name="save">Save</string>
+    <string name="delete_task">Delete Task</string>
+    <string name="are_you_sure">Are you sure?</string>
 </resources>
