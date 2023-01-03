@@ -5,7 +5,6 @@ import java.text.SimpleDateFormat;
 public class ListItem {
     private String title;
     private int id;
-    private String date;
     private boolean done;
 
     public void setTitle(String title) {
@@ -24,13 +23,6 @@ public class ListItem {
         return done;
     }
 
-    public void setDate(String date) {
-        this.date = date;
-    }
-
-    public String getDate() {
-        return date;
-    }
 
     public void setId(int id) {
         this.id = id;

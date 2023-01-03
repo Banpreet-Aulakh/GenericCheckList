@@ -17,29 +17,27 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     private SQLiteDatabase db;
 
-    private static final String DATABASE_NAME = "Database";
+    private static final String DATABASE_NAME = "CHECKLIST";
     private static final String TABLE_NAME = "NAME";
     private static final String COL_1 = "ID";
     private static final String COL_2 = "TASK";
     private static final String COL_3 = "CHECKED";
-    private static final String COL_4 = "INSTANCE";
-
 
     public DatabaseHelper(@Nullable Context context) {
         super(context, DATABASE_NAME, null, 1);
     }
-
     @Override
     public void onCreate(SQLiteDatabase sqLiteDatabase) {
+        db = sqLiteDatabase;
         db.execSQL("CREATE TABLE IF NOT EXISTS " + TABLE_NAME +
                 "(ID INTEGER PRIMARY KEY AUTOINCREMENT , " +
                 "TASK TEXT  , " +
-                "CHECKED BOOLEAN ," +
-                "INSTANCE DATE)");
+                "CHECKED BOOLEAN)");
     }
 
     @Override
     public void onUpgrade(SQLiteDatabase sqLiteDatabase, int i, int i1) {
+        db = sqLiteDatabase;
         db.execSQL("DROP TABLE IF EXISTS " + TABLE_NAME);
         onCreate(db);
     }
@@ -49,7 +47,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         ContentValues values = new ContentValues();
         values.put(COL_2, item.getTitle());
         values.put(COL_3, item.isDone());
-        values.put(COL_4, item.getDate());
         db.insert(TABLE_NAME, null, values);
     }
 
@@ -94,8 +91,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                         task.setId(cursor.getInt(cursor.getColumnIndexOrThrow(COL_1)));
                         task.setTitle(cursor.getString(cursor.getColumnIndexOrThrow(COL_2)));
                         task.setDone(cursor.getInt(cursor.getColumnIndexOrThrow(COL_3)) != 0);
-                        task.setDate(cursor.getString(cursor.getColumnIndexOrThrow(COL_4)));
-
                         listItems.add(task);
                     } while (cursor.moveToNext());
                 }

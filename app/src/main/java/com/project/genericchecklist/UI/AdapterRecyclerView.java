@@ -40,7 +40,7 @@ public class AdapterRecyclerView extends RecyclerView.Adapter<AdapterRecyclerVie
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
         final ListItem listItem = list.get(position);
 
-        holder.checkBox.setText(listItem.getTitle() + "\n" + listItem.getDate());
+        holder.checkBox.setText(listItem.getTitle());
         holder.checkBox.setChecked(listItem.isDone());
         holder.checkBox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
@@ -77,7 +77,10 @@ public class AdapterRecyclerView extends RecyclerView.Adapter<AdapterRecyclerVie
         Bundle bundle = new Bundle();
         bundle.putInt("Id", item.getId());
         bundle.putString("task", item.getTitle());
-        bundle.putString("date", item.getDate());
+
+        NewTaskFragment task = new NewTaskFragment();
+        task.setArguments(bundle);
+        task.show(activity.getSupportFragmentManager(), task.getTag());
     }
 
     @Override
