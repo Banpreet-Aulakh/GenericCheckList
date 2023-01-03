@@ -3,13 +3,21 @@ package com.project.genericchecklist.model;
 import java.util.ArrayList;
 
 public class CheckList {
-    private ArrayList<Item> itemList;
+    private ArrayList<ListItem> itemList;
+    private static CheckList instance;
 
-    public CheckList(){
+    private CheckList(){
         itemList = new ArrayList<>();
     }
 
-    public void addItem(Item item){
+    public static CheckList getInstance(){
+        if (instance == null) {
+            instance = new CheckList();
+        }
+        return instance;
+    }
+
+    public void addItem(ListItem item){
         itemList.add(item);
     }
 
@@ -17,7 +25,7 @@ public class CheckList {
         itemList.remove(pos);
     }
 
-    public Item getItem(int pos){
+    public ListItem getItem(int pos){
         return itemList.get(pos);
     }
 
@@ -27,5 +35,9 @@ public class CheckList {
 
     public int listSize(){
         return itemList.size();
+    }
+
+    public ArrayList<ListItem> getItemList() {
+        return itemList;
     }
 }
