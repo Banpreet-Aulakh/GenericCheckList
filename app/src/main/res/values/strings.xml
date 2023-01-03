@@ -1,3 +1,4 @@
 <resources>
-    <string name="app_name">GenericCheckList</string>
+    <string name="app_name">Check List</string>
+    <string name="fab_description">Add Item to Checklist</string>
 </resources>

@@ -1,10 +1,12 @@
-package com.project.genericchecklist;
+package com.project.genericchecklist.UI;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 
-public class MainActivity extends AppCompatActivity {
+import com.project.genericchecklist.R;
+
+public class CheckListActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
