@@ -9,6 +9,6 @@ before my first class on Wednesday, January 3rd 2023.
 - Store information in SQLite Database
 
 ## Completion Comments
-- This project was surprisingle challenging to implement well
+- This project was surprisingly challenging to implement well
 - Luckily I was able to rely on some online resources and GitHub libraries to make this easier
 - The GUI could definitely be improved but I'm not publishing this
